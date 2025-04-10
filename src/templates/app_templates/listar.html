@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+Todos los autores
+{% endblock titulo%}
+
+{% block contenido %}
+<h3>Todos los autores</h3>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">nombre</th>
+          <th scope="col">nacionalidad</th>
+          <th scope="col">activo</th>
+          <th scope="col">nacimiento</th>
+          <th scope="col">fallecimiento</th>
+          <th scope="col">creacion</th>
+          <th scope="col">actualizacion</th>
+          <th scope="col">borrar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for autor in autores %}
+        <tr>
+          <td>{{autor.id}}
+          <td>{{autor.nombre}}</td>
+          <td>{{autor.nacionalidad}}</td>
+
+          {% if autor.activo%}
+            <td>
+              <a href="{% url 'autores:estado' autor.id %}" >
+              <img src="{% static 'img/comprobado.png' %}" alt="SI" width="32px" ><!-- No funciona la img -->
+            </td>
+          {% else %}
+            <td>
+              <a href="{% url 'autores:estado' autor.id %}" >
+              <img src="{% static 'img/cancelar.png' %}" alt="NO" width="32px" ><!-- No funciona la img -->
+            </td>
+          {% endif %}
+          
+          <td>{{autor.fecha_nacimiento}}</td>
+          <td>{{autor.fecha_fallecimiento}}</td>
+
+          <td>{{autor.created_at}}</td>
+          <td>{{autor.updated_at}}</td>
+
+          <td>
+            <a href="{% url 'autores:borrar' autor.id %}" >
+              <img src="{% static 'img/papelera.png' %}" alt="Eliminar" width="32px">
+            </a>
+          </td>
+        </tr>
+        
+        {% endfor %}
+      </tbody>
+
+</table>
+{% endblock contenido%}

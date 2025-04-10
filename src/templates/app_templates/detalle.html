@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    Detalle de {{autor}}
+{% endblock titulo %}
+
+{% block contenido %}
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{autor.nombre}}</h5>
+    <p class="card-text">Aca iran las frases, asi abajito de la foto del autor, bien bonito</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{autor.nacionalidad}}</li>
+    <li class="list-group-item">{{autor.fecha_nacimiento}}</li>
+    <li class="list-group-item">{{autor.activo}}</li>
+  </ul>
+  <div class="card-body">
+    <a href="{% url 'autores:listar_autores' %}" class="card-link">Volver</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+{% endblock contenido %}
