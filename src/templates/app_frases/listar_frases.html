@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Listado de frases{% endblock titulo %}
+
+{% block contenido %}
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">autor</td>
+        <th scope="col">frase</th>
+        <th scope="col">comentario</th>
+        <th scope="col">fecha_frase</td>
+        <th scope="col">acciones</td>
+        
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for frase in listar_frases %}
+        <tr>
+            <td>{{frase.id}}</td>
+            <td>{{frase.autor.nombre}}
+            <td>{{frase.frase}}</td>
+            <td>{{frase.comentario}}</td>
+            <td>{{frase.fecha_frase}}</td>
+            <td>
+                <a href="{% url 'frases:actualizar_frase' frase.id %}">
+                    <img src="{% static 'img/modificar.png' %}" alt="modificar" width="32px">
+                    </a>
+                    <a href="{% url 'frases:borrar_frase' frase.id %}">
+                    <img src="{% static 'img/papelera.png' %}" alt="eliminar" width="32px">
+                    </a>      
+            <td>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+{% endblock contenido %}

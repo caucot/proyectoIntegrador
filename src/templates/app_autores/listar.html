@@ -19,7 +19,8 @@ Todos los autores
           <th scope="col">fallecimiento</th>
           <th scope="col">creacion</th>
           <th scope="col">actualizacion</th>
-          <th scope="col">borrar</th>
+          <th scope="col">frases</th>
+          <th scope="col">acciones</th>
         </tr>
       </thead>
 
@@ -33,12 +34,12 @@ Todos los autores
           {% if autor.activo%}
             <td>
               <a href="{% url 'autores:estado' autor.id %}" >
-              <img src="{% static 'img/comprobado.png' %}" alt="SI" width="32px" ><!-- No funciona la img -->
+              <img src="{% static 'img/comprobado.png' %}" alt="SI" width="32px" >
             </td>
           {% else %}
             <td>
               <a href="{% url 'autores:estado' autor.id %}" >
-              <img src="{% static 'img/cancelar.png' %}" alt="NO" width="32px" ><!-- No funciona la img -->
+              <img src="{% static 'img/cancelar.png' %}" alt="NO" width="32px" >
             </td>
           {% endif %}
           
@@ -49,9 +50,24 @@ Todos los autores
           <td>{{autor.updated_at}}</td>
 
           <td>
-            <a href="{% url 'autores:borrar' autor.id %}" >
-              <img src="{% static 'img/papelera.png' %}" alt="Eliminar" width="32px">
+            <a href="{% url 'autores:autor_frases' autor.id %}" >
+              <img src="{% static 'img/libros.png' %}" alt="frases" width="32px">
             </a>
+          </td>
+
+          <td>
+            <a href="{% url 'autores:detalle' autor.id %}" >
+              <img src="{% static 'img/hojas.png' %}" alt="detalle" width="32px">
+            </a>
+
+            <a href="{% url 'autores:modificar' autor.id %}" >
+              <img src="{% static 'img/modificar.png' %}" alt="modificar" width="32px">
+            </a>
+
+            <a href="{% url 'autores:borrar' autor.id %}" >
+              <img src="{% static 'img/papelera.png' %}" alt="eliminar" width="32px">
+            </a>
+            
           </td>
         </tr>
         

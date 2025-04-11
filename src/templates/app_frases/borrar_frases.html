@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block titulo %}Por favor, confirme el borrado{% endblock titulo %}
+
+
+{% block contenido %}
+<form method="post">{% csrf_token %}
+    <p>¿Estás seguro que quieres borrar"{{ object }}"?</p>
+    {{ form }}
+    <input type="submit" value="Borrar">
+</form>
+
+{% endblock contenido %}

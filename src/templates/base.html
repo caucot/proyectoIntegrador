@@ -22,6 +22,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -37,6 +38,18 @@
                 <li><a class="dropdown-item" href="{% url 'autores:autores_activos' %}">Autores Activos</a></li>
                 <li><a class="dropdown-item" href="{% url 'autores:autores_inactivos' %}">Autores Inactivos</a></li>
                 <li><a class="dropdown-item" href="{% url 'autores:listar_json' %}">Lista de autores en Json</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Frases
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'frases:listar_frases' %}">Todas las frases</a></li>
+                <li><a class="dropdown-item" href="{% url 'frases:frases_visibles' %}">Frases visibles</a></li>
+                <li><a class="dropdown-item" href="{% url 'frases:frases_invisibles' %}">Frases invisibles</a></li>
+                <li><a class="dropdown-item" href="{% url 'frases:listar_frases_json' %}">Frases visibles en Json</a></li>
               </ul>
             </li>
             
