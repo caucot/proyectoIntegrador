@@ -16,7 +16,7 @@ class FrasesListView(ListView):
         frases_total = Frases.objects.all() #Frases_total lista todos los obj por defecto
         autor_id = self.request.GET.get("autor") #Obtiene la variable autor del html, linea 53
         if autor_id: #En caso de recibir un id, entonces filtra frases_total por autor.id
-            frases_total = frases_total.filter(autor__nombre=nombre_autor) 
+            frases_total = frases_total.filter(autor__id=autor_id) 
         return frases_total
     
 class VisibleListView(ListView):

@@ -60,7 +60,7 @@ Todos los autores
               <img src="{% static 'img/hojas.png' %}" alt="detalle" width="32px">
             </a>
 
-            <a href="{% url 'autores:modificar' autor.id %}" >
+            <a href="{% url 'autores:modificar' %}? autor={{ autor.id}}" >
               <img src="{% static 'img/modificar.png' %}" alt="modificar" width="32px">
             </a>
 

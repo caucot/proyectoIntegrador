@@ -17,7 +17,8 @@ urlpatterns = [
     path('detalle/<int:id>/', views.detalle_autor, name='detalle'),
     path('listar_json/', views.listar_json, name='listar_json'),
     path('estado/<int:id>', views.estado_autor, name='estado'),
-    path('modificar/<int:id>/', AutorUpdateView.as_view(), name = 'modificar'),
     path('crear/<int:id>/', AutorCreateView.as_view(), name = 'crear'),
+    path('modificar/', AutorUpdateView.as_view(), name = 'modificar'),
+
     path('frases/',  include('frases.urls')), #La tarea de listar las frases se encarga la app frases, lo manda a su ventanilla
 ]

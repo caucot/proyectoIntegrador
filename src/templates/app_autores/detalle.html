@@ -10,15 +10,8 @@
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{autor.nombre}}</h5>
-    <p class="card-text">Cantidad de frases: {{cant_frases}} </p>
+    <p class="card-text">Cantidad de frases: {{cantidad_frases}} </p>
 
-    <p class="card-text">
-      <ul>
-          {% for frase in listar_frases %}
-          <li>{{frase.autor.nombre}} {{frase.frase}} {{frase.fecha_frase}}</li>
-          {% endfor %}
-      </ul>
-    </p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{autor.nacionalidad}}</li>
@@ -27,7 +20,7 @@
   </ul>
   <div class="card-body">
     <a href="{% url 'autores:listar_autores' %}" class="card-link">Volver</a>
-    <a href="{% url 'autores:autor_frases' autor.id %}" class="card-link">Frases</a>
+    <a href="{% url 'frases:listar_frases'%}? autor={{ autor.id }}" class="card-link">Frases</a>
   </div>
 </div>
 

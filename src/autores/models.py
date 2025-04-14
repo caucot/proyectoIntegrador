@@ -4,12 +4,6 @@ from django.db import models
 
 class Autor(models.Model):
     nacionalidades = {
-        #('AR', 'Argentina'),
-        #('ES', 'España'),
-        #('MX', 'Mexico'),
-        #('BRA', 'Brasil'),
-        #('CHL', 'Chile'),
-        #('USA', 'Estados Unidos'),
         "Argentina": "Argentina",
         "Boliviana": "Boliviana",
         "Brasileña": "Brasileña",

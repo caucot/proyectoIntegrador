@@ -44,7 +44,7 @@ def detalle_autor(request,id):
     return render(request,
                   'app_autores/detalle.html',
                   {'autor': autor,
-                   'cantidad_frases': cant_frases}
+                   'cantidad_frases': cant_frases,}
                   )
 
 def borrar_autor(request, id):
@@ -63,8 +63,10 @@ class AutorUpdateView(UpdateView):
     fields = '__all__' 
     template_name = 'crear.html'
     success_url = reverse_lazy('autores:listar_autores')
-    def get_queryset(self):
-        return super().get_queryset().filter(id="id")
+    
+    def get_queryset(self): #Metodo para recibir un parametro desde la url
+        autor_id = self.request.GET.get("autor") 
+        return autor_id
 
 class AutorCreateView(CreateView):
     autor = Autor

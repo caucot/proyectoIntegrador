@@ -28,10 +28,10 @@
             <td>{{frase.comentario}}</td>
             <td>{{frase.fecha_frase}}</td>
             <td>
-                <a href="{% url 'frases:actualizar_frase' frase.id %}">
+                <a href="{% url 'frases:actualizar_frase' frase.id %} ">
                     <img src="{% static 'img/modificar.png' %}" alt="modificar" width="32px">
                     </a>
-                    <a href="{% url 'frases:borrar_frase' frase.id %}">
+                    <a href="{% url 'frases:borrar_frase' frase.id %}  ">
                     <img src="{% static 'img/papelera.png' %}" alt="eliminar" width="32px">
                     </a>      
                 </td>
