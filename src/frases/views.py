@@ -8,10 +8,16 @@ from frases.models import Autor
 # Create your views here.
 
 class FrasesListView(ListView):
-    queryset = Frases.objects.all()
+    model = Frases
     template_name = 'app_frases/listar_frases.html'
-    context_object_name = 'listar_frases'
-    
+    context_object_name = 'listar_frases'    
+
+    def get_queryset(self): #Metodo para recibir un parametro desde la url
+        frases_total = Frases.objects.all() #Frases_total lista todos los obj por defecto
+        autor_id = self.request.GET.get("autor") #Obtiene la variable autor del html, linea 53
+        if autor_id: #En caso de recibir un id, entonces filtra frases_total por autor.id
+            frases_total = frases_total.filter(autor__nombre=nombre_autor) 
+        return frases_total
     
 class VisibleListView(ListView):
     queryset = Frases.objects.all().filter(visible=True)

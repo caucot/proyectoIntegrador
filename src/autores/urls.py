@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
 from .views import (
     AutorUpdateView,
@@ -19,5 +19,5 @@ urlpatterns = [
     path('estado/<int:id>', views.estado_autor, name='estado'),
     path('modificar/<int:id>/', AutorUpdateView.as_view(), name = 'modificar'),
     path('crear/<int:id>/', AutorCreateView.as_view(), name = 'crear'),
-    path('autor_frases/<int:id>', FrasesListView.as_view(), name= 'autor_frases'),
+    path('frases/',  include('frases.urls')), #La tarea de listar las frases se encarga la app frases, lo manda a su ventanilla
 ]

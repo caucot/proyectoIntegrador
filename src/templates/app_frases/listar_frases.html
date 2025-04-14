@@ -20,11 +20,10 @@
     </thead>
 
     <tbody>
-
         {% for frase in listar_frases %}
         <tr>
             <td>{{frase.id}}</td>
-            <td>{{frase.autor.nombre}}
+            <td>{{frase.autor.nombre}}</td>
             <td>{{frase.frase}}</td>
             <td>{{frase.comentario}}</td>
             <td>{{frase.fecha_frase}}</td>
@@ -35,7 +34,7 @@
                     <a href="{% url 'frases:borrar_frase' frase.id %}">
                     <img src="{% static 'img/papelera.png' %}" alt="eliminar" width="32px">
                     </a>      
-            <td>
+                </td>
         {% endfor %}
 
     </tbody>
