@@ -3,6 +3,7 @@ from django.core import serializers
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView
+from django.contrib.auth.decorators import login_required 
 from frases.models import Frases
 
 from .models import Autor

@@ -3,6 +3,7 @@ from django.core import serializers
 from django.http import JsonResponse
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Frases
 from frases.models import Autor
 # Create your views here.
