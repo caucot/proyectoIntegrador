@@ -70,7 +70,7 @@ class AutorUpdateView(UpdateView):
 
 
 class AutorCreateView(CreateView):
-    autor = Autor
-    fields = ["autor","nacionalidad","fecha_nacimiento","fecha_fallecimiento","activo"] #Campos a llenar
+    model = Autor
+    fields = '__all__' #Mejor que los llene todos
     template_name = 'crear.html'
     success_url = reverse_lazy('autores:listar_autores')

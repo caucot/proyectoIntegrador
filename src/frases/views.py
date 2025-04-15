@@ -8,7 +8,7 @@ from frases.models import Autor
 # Create your views here.
 
 class FrasesListView(ListView):
-    frase = Frases
+    model = Frases
     template_name = 'app_frases/listar_frases.html'
     context_object_name = 'listar_frases'    
 
@@ -32,14 +32,15 @@ class InvisibleListView(ListView):
     context_object_name = 'listar_frases'
     
 class FrasesCreateView(CreateView):
-    frase = Frases
+    model = Frases
     fields = ["frase","comentario","fecha_frase"] #Campos a llenar
     template_name = 'crear.html'
     success_url = reverse_lazy('frases:listar_frases')
+
     
 
 class FrasesUpdateView(UpdateView):
-    frase = Frases
+    model = Frases
     fields = '__all__' #
     template_name = 'crear.html'
     success_url = reverse_lazy('frases:listar_frases')
@@ -50,7 +51,7 @@ class FrasesUpdateView(UpdateView):
 
 
 class FrasesDeleteView(DeleteView):
-    frase = Frases
+    model = Frases
     template_name = 'frases/borrar_frases.html'
     success_url = reverse_lazy('frases:listar_frases')
     
