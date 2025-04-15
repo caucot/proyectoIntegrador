@@ -50,7 +50,7 @@ Todos los autores
           <td>{{autor.updated_at}}</td>
 
           <td>
-            <a href="{% url 'frases:listar_frases'%}? autor={{ autor.id }}" >
+            <a href="{% url 'frases:frases_por_autor' autor.id %}">
               <img src="{% static 'img/libros.png' %}" alt="frases" width="32px">
             </a>
           </td>
@@ -60,7 +60,7 @@ Todos los autores
               <img src="{% static 'img/hojas.png' %}" alt="detalle" width="32px">
             </a>
 
-            <a href="{% url 'autores:modificar' %}? autor={{ autor.id}}" >
+            <a href="{% url 'autores:modificar' autor.id %}" >
               <img src="{% static 'img/modificar.png' %}" alt="modificar" width="32px">
             </a>
 

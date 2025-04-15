@@ -59,14 +59,15 @@ def estado_autor(request,id):
     return HttpResponseRedirect(reverse('autores:listar_autores'))
 
 class AutorUpdateView(UpdateView):
-    autor = Autor
+    model = Autor
     fields = '__all__' 
     template_name = 'crear.html'
     success_url = reverse_lazy('autores:listar_autores')
     
-    def get_queryset(self): #Metodo para recibir un parametro desde la url
-        autor_id = self.request.GET.get("autor") 
-        return autor_id
+    def get_queryset(self): #Metodo para recibir un parametro desde la url, va html
+        # Obtenemos un queryset filtrado por la pk desde la URL
+        return Autor.objects.filter(pk=self.kwargs.get("pk"))
+
 
 class AutorCreateView(CreateView):
     autor = Autor

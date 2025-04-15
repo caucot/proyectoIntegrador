@@ -20,7 +20,7 @@
   </ul>
   <div class="card-body">
     <a href="{% url 'autores:listar_autores' %}" class="card-link">Volver</a>
-    <a href="{% url 'frases:listar_frases'%}? autor={{ autor.id }}" class="card-link">Frases</a>
+    <a href="{% url 'frases:frases_por_autor' autor.id %}" class="card-link">Frases</a>
   </div>
 </div>
 

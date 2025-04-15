@@ -4,7 +4,6 @@ from .views import (
     AutorUpdateView,
     AutorCreateView,  
 )
-from frases.views import FrasesListView
 
 app_name='autores'
 
@@ -17,8 +16,6 @@ urlpatterns = [
     path('detalle/<int:id>/', views.detalle_autor, name='detalle'),
     path('listar_json/', views.listar_json, name='listar_json'),
     path('estado/<int:id>', views.estado_autor, name='estado'),
-    path('crear/<int:id>/', AutorCreateView.as_view(), name = 'crear'),
-    path('modificar/', AutorUpdateView.as_view(), name = 'modificar'),
-
-    path('frases/',  include('frases.urls')), #La tarea de listar las frases se encarga la app frases, lo manda a su ventanilla
+    path('crear/', AutorCreateView.as_view(), name = 'crear'),
+    path('modificar/<int:pk>', AutorUpdateView.as_view(), name = 'modificar'),
 ]

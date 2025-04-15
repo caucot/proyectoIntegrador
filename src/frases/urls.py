@@ -13,6 +13,7 @@ app_name = 'frases'
 
 urlpatterns = [
     path('listar_frases/', FrasesListView.as_view(), name = 'listar_frases'),
+    path('listar_frases/<int:autor>/', FrasesListView.as_view(), name = 'frases_por_autor'),
     path('listar_visibles/', VisibleListView.as_view(), name = 'frases_visibles'),
     path('listar_invisibles/', InvisibleListView.as_view(), name = 'frases_invisibles'),
     path('crear_frase/', FrasesCreateView.as_view(), name = 'crear_frase'),
