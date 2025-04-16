@@ -5,7 +5,7 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Frases
-from frases.models import Autor
+
 # Create your views here.
 
 class FrasesListView(ListView):
@@ -31,6 +31,7 @@ class InvisibleListView(ListView):
     queryset = Frases.objects.all().filter(visible=False)
     template_name = 'app_frases/listar_frases.html'
     context_object_name = 'listar_frases'
+    
     
 class FrasesCreateView(CreateView):
     model = Frases

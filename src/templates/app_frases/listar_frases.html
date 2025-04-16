@@ -14,6 +14,7 @@
         <th scope="col">frase</th>
         <th scope="col">comentario</th>
         <th scope="col">fecha_frase</td>
+        <th scope="col">visible</td>
         <th scope="col">acciones</td>
         
         </tr>
@@ -27,6 +28,17 @@
             <td>{{frase.frase}}</td>
             <td>{{frase.comentario}}</td>
             <td>{{frase.fecha_frase}}</td>
+            
+            {% if frase.visible%}
+                <td>
+                <img src="{% static 'img/comprobado.png' %}" alt="SI" width="32px" >
+                </td>
+            {% else %}
+                <td>
+                <img src="{% static 'img/cancelar.png' %}" alt="NO" width="32px" >
+                </td>
+            {% endif %}
+            
             <td>
                 <a href="{% url 'frases:actualizar_frase' frase.id %} ">
                     <img src="{% static 'img/modificar.png' %}" alt="modificar" width="32px">
