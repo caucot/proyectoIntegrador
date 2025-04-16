@@ -34,11 +34,10 @@ class InvisibleListView(ListView):
     
 class FrasesCreateView(CreateView):
     model = Frases
-    fields = ["frase","comentario","fecha_frase"] #Campos a llenar
+    fields = '__all__' #Campos a llenar
     template_name = 'crear.html'
     success_url = reverse_lazy('frases:listar_frases')
 
-    
 
 class FrasesUpdateView(UpdateView):
     model = Frases
@@ -53,9 +52,12 @@ class FrasesUpdateView(UpdateView):
 
 class FrasesDeleteView(DeleteView):
     model = Frases
-    template_name = 'frases/borrar_frases.html'
+    template_name = 'app_frases/borrar_frases.html'
     success_url = reverse_lazy('frases:listar_frases')
     
+    def get_queryset(self): #Metodo para recibir un parametro desde la url, va html
+        # Obtenemos un queryset filtrado por la pk desde la URL
+        return Frases.objects.filter(pk=self.kwargs.get("pk"))
 
 def listar_frases_json(request):
     frases = get_list_or_404(Frases, visible = True)
